@@ -4,7 +4,7 @@ import sys
 import os
 import re
 
-the_host = sys.argv[1]
+to_replace = sys.argv[1]
 
 _TO_REPLACE = r'wstelnet://localhost:48763/bbs'
 
@@ -13,7 +13,6 @@ def _update_host(filename):
     with open(filename, 'r') as f:
         content = f.read()
 
-    to_replace = 'wstelnet://' + the_host + '/bbs'
     content = re.sub(_TO_REPLACE, to_replace, content)
     with open(filename, 'w') as f:
         f.write(content)
